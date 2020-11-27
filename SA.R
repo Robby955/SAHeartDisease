@@ -27,3 +27,8 @@ splineModel = glm( format, data=SA_heart_data, family=binomial )
 print( summary(splineModel), digits=3 )
 
 drop1(splineModel, scope=format, test="Chisq" )
+
+backstep2 = step(modelSpline) # Backwards selection is the default
+summary(backstep2)
+drop1( backstep2, test="Chisq" )
+
